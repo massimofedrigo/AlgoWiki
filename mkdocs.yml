@@ -1,0 +1,13 @@
+site_name: AlgoWiki
+theme:
+  name: material
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.superfences
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js
+extra_css:
+  - https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css
