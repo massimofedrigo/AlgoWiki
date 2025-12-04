@@ -1,0 +1,33 @@
+name: publish-algowiki
+
+on:
+  push:
+    branches:
+      - main  # Trigger al push su main
+
+permissions:
+  contents: write # Necessario per scrivere sulla branch gh-pages
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install mkdocs-material
+
+      - name: Configure Git User
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+      - name: Deploy to gh-pages
+        # Questo comando crea/aggiorna la branch gh-pages e ci mette il sito statico
+        # L'opzione --cname crea automaticamente il file CNAME necessario
+        run: mkdocs gh-deploy --force --cname algowiki.dev

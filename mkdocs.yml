@@ -1,13 +1,24 @@
 site_name: AlgoWiki
+site_url: https://algowiki.dev
+repo_url: https://github.com/massimofedrigo/AlgoWiki
+edit_uri: edit/main/docs/
+
 theme:
   name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - content.code.copy
+
+# Configurazione LaTeX
 markdown_extensions:
   - admonition
   - toc:
       permalink: true
-  - pymdownx.arithmatex
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.superfences
+
 extra_javascript:
-  - https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js
-extra_css:
-  - https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
