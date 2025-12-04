@@ -18,7 +18,8 @@ Currently, the repository includes the following implementations:
 ### Sorting
 
 * [**Bubble Sort**](bubble_sort.md) - A simple (though inefficient) sorting algorithm.
-* [**Merge Sort**](merge_sort.md) - An efficient, stable algorithm based on the *Divide and Conquer* paradigm.
+* [**Merge Sort**](merge_sort.md) - An efficient, stable sorting algorithm based on the *Divide and Conquer* paradigm.
+* [**Selection Sort**](selection_sort.md) - A straightforward sorting algorithm based on the in-place comparison paradigm.
 
 ---
 

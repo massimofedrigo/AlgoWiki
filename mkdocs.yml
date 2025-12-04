@@ -1,7 +1,7 @@
 site_name: AlgoWiki
 site_url: https://algowiki.dev
 repo_url: https://github.com/massimofedrigo/AlgoWiki
-edit_uri: edit/main/docs/
+edit_uri: edit/main/docs/ # Aggiunge il tasto "Edit this page"
 
 theme:
   name: material
@@ -9,17 +9,62 @@ theme:
     - navigation.instant
     - navigation.tracking
     - content.code.copy
+    - content.tabs.link  # Ricorda quale tab hai aperto (es. Implementazione vs Esempio)
+  palette: 
+    # (Opzionale) Aggiunge il toggle per la Dark Mode
+    - scheme: default
+      primary: teal
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: lime
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 
-# Configurazione LaTeX
+# Estensioni Markdown (Questa è la parte che ti mancava!)
 markdown_extensions:
   - admonition
+  - abbr
+  - attr_list
+  - md_in_html
   - toc:
       permalink: true
+  
+  # Gestione Formule Matematiche
   - pymdownx.arithmatex:
       generic: true
-  - pymdownx.superfences
+  
+  # Gestione Codice e Blocchi
+  - pymdownx.superfences:
+      preserve_tabs: true
+      custom_fences:
+              - name: mermaid
+                class: mermaid
+                format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  
+  # Gestione Tab (=== "Titolo")
+  - pymdownx.tabbed:
+      alternate_style: true 
+  
+  # Gestione Admonitions avanzate (!!! success "Titolo")
+  - pymdownx.details
+  
+  # Gestione Emoji (:white_check_mark:)
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
+# I tuoi script custom
 extra_javascript:
   - javascripts/mathjax.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://unpkg.com/mermaid/dist/mermaid.min.js
